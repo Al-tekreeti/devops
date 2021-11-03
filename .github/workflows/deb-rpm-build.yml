@@ -13,14 +13,15 @@ jobs:
     runs-on: ubuntu-18.04
     env:
       GOPATH: ${GITHUB_WORKSPACE}/go
-      REPO: open-horizon/anax
+      OWNER: open-horizon
+      REPO: anax
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         with:
-           repository: ${REPO}
-           path: go/src/github.com/${REPO}
+           repository: ${OWNER}/${REPO}
+           path: go/src/github.com/${OWNER}/${REPO}
       
       # prepare the environment
       - name: Set up golang 1.16.1
