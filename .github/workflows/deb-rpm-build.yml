@@ -41,6 +41,7 @@ jobs:
       # Build the deb pkgs and put them in pkg/deb/debs/
       - name: Build DEB packages
         run: |
+          export VERSION=1.0.0
           cd ${GOPATH}/src/github.com/${OWNER}/${REPO} && make debpkgs
           ls -la pkg/deb/debs/
 
