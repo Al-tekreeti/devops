@@ -38,6 +38,14 @@ jobs:
           #git config user.email mmaj1976@gmail.com
           cd ${GOPATH}/src/github.com/${OWNER} && git clone https://github.com/${OWNER}/${REPO}.git
 
-      # Build anax binaries
-      - name: Build anax binaries
-        run: cd ${GOPATH}/src/github.com/${OWNER}/${REPO} && make
+      # Build the deb pkgs and put them in pkg/deb/debs/
+      - name: Build DEB packages
+        run: |
+          cd ${GOPATH}/src/github.com/${OWNER}/${REPO} && make debpkgs
+          ls -la pkg/deb/debs/
+
+      # Build the rpm pkgs and put them in ~/rpmbuild/RPMS/x86_64/
+      - name: Build RPM packages
+        run: |
+          cd ${GOPATH}/src/github.com/${OWNER}/${REPO} && make rpmpkgs
+          ls -la ~/rpmbuild/RPMS/x86_64/
