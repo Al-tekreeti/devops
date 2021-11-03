@@ -17,6 +17,9 @@ jobs:
       REPO: anax
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # test environment variables
+      - name: Echo env variables
+        run: echo ${OWNER} && echo ${REPO}
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         with:
