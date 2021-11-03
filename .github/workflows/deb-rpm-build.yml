@@ -12,7 +12,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-18.04
     env:
-      GOPATH: ${GITHUB_WORKSPACE}/go
+      GOPATH: /home/runner/work/anax/anax/go
       OWNER: open-horizon
       REPO: anax
     # Steps represent a sequence of tasks that will be executed as part of the job
