@@ -13,26 +13,31 @@ jobs:
     runs-on: ubuntu-18.04
     env:
       GOPATH: ${GITHUB_WORKSPACE}/go
-      OWNER: Al-tekreeti
+      OWNER: open-horizon
       REPO: anax
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # test environment variables
+      # Test environment variables
       - name: Echo env variables
         run: echo ${OWNER} && echo ${REPO}
+
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2.3.4
-        with:
-           repository: ${OWNER}/${REPO}
-           path: go/src/github.com/${OWNER}/${REPO}
-           ref: master
+      - uses: actions/checkout@v2
       
-      # prepare the environment
+      # Prepare the environment
       - name: Set up golang 1.16.1
         uses: actions/setup-go@v2
         with:
            go-version: '1.16.1'
+      
+      # Checks-out open-horizon/anax repo
+      - name: Check-out anax repo
+        run: |
+          mkdir -p ${GOPATH}/src/github.com/${OWNER}/${REPO}
+          git config user.name Al-tekreeti
+          git config user.email mmaj1976@gmail.com
+          cd ${GOPATH}/src/github.com/${OWNER}/${REPO} && git clone https://github.com/open-horizon/anax.git
 
-      # build anax binaries
+      # Build anax binaries
       - name: Build anax binaries
-        run: cd ${GOPATH}/src/github.com/${REPO} && make
+        run: cd ${GOPATH}/src/github.com/${OWNER}/${REPO} && make
