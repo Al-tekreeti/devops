@@ -33,10 +33,10 @@ jobs:
       # Checks-out open-horizon/anax repo
       - name: Check-out anax repo
         run: |
-          mkdir -p ${GOPATH}/src/github.com/${OWNER}/${REPO}
+          mkdir -p ${GOPATH}/src/github.com/${OWNER}
           git config user.name Al-tekreeti
           git config user.email mmaj1976@gmail.com
-          cd ${GOPATH}/src/github.com/${OWNER}/${REPO} && git clone https://github.com/open-horizon/anax.git
+          cd ${GOPATH}/src/github.com/${OWNER} && git clone https://github.com/open-horizon/anax.git
 
       # Build anax binaries
       - name: Build anax binaries
