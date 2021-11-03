@@ -19,7 +19,7 @@ jobs:
     steps:
       # Test environment variables
       - name: Echo env variables
-        run: echo ${OWNER} && echo ${REPO}
+        run: echo ${OWNER} && echo ${REPO} && echo ${GITHUB_WORKSPACE}
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -36,7 +36,7 @@ jobs:
           mkdir -p ${GOPATH}/src/github.com/${OWNER}
           git config user.name Al-tekreeti
           git config user.email mmaj1976@gmail.com
-          cd ${GOPATH}/src/github.com/${OWNER} && git clone https://github.com/${OWNER}/anax.git
+          cd ${GOPATH}/src/github.com/${OWNER} && git clone https://github.com/${OWNER}/${REPO}.git
 
       # Build anax binaries
       - name: Build anax binaries
