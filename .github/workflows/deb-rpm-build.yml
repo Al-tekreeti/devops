@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-18.04
     env:
       GOPATH: ${GITHUB_WORKSPACE}/go
-      OWNER: open-horizon
+      OWNER: Al-tekreeti
       REPO: anax
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
