@@ -36,7 +36,7 @@ jobs:
           mkdir -p ${GOPATH}/src/github.com/${OWNER}
           git config user.name Al-tekreeti
           git config user.email mmaj1976@gmail.com
-          cd ${GOPATH}/src/github.com/${OWNER} && git clone https://github.com/open-horizon/anax.git
+          cd ${GOPATH}/src/github.com/${OWNER} && git clone https://github.com/${OWNER}/anax.git
 
       # Build anax binaries
       - name: Build anax binaries
