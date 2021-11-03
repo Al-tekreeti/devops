@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-18.04
     env:
       GOPATH: ${GITHUB_WORKSPACE}/go
-      OWNER: Al-tekreeti
+      OWNER: open-horizon
       REPO: anax
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -25,6 +25,7 @@ jobs:
         with:
            repository: ${OWNER}/${REPO}
            path: go/src/github.com/${OWNER}/${REPO}
+           ref: master
       
       # prepare the environment
       - name: Set up golang 1.16.1
