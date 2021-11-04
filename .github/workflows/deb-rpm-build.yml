@@ -41,7 +41,7 @@ jobs:
       # Build the deb pkgs and put them in pkg/deb/debs/
       - name: Build DEB packages
         run: |
-          cd ${GOPATH}/src/github.com/${OWNER}/${REPO} && make anax
+          cd ${GOPATH}/src/github.com/${OWNER}/${REPO} && arch=x86_64 make anax
           #ls -la pkg/deb/debs/
 
       # Build the rpm pkgs and put them in ~/rpmbuild/RPMS/x86_64/
