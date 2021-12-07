@@ -11,15 +11,10 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-18.04
-    strategy:
-      fail-fast: false
-      matrix:
-        type: [x86_64]
     env:
       GOPATH: /home/runner/work/anax/anax/go
       OWNER: open-horizon
       REPO: anax
-      arch: ${{matrix.type}}
       IMAGE_REPO: maltekreeti
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -55,7 +50,6 @@ jobs:
       - name: Build anax binaries
         run: |
           cd ${GOPATH}/src/github.com/${OWNER}/${REPO} && make anax
-          #ls -la pkg/deb/debs/
 
       # Build anax docker images
       - name: Build and publish docker images
