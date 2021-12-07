@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        type: [amd64]
+        type: [x86_64]
     env:
       GOPATH: /home/runner/work/anax/anax/go
       OWNER: open-horizon
