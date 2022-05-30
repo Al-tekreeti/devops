@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@v2
       
       # Prepare the environment
-      - name: Set up golang 1.16.1
+      - name: Set up golang 1.17.1
         uses: actions/setup-go@v2
         with:
            go-version: '1.17.1'
@@ -49,7 +49,7 @@ jobs:
       # Build anax binaries
       - name: Build anax binaries
         run: |
-          cd ${GOPATH}/src/github.com/${OWNER}/${REPO} && make anax
+          cd ${GOPATH}/src/github.com/${OWNER}/${REPO} && make
 
       # Build anax docker images
       - name: Build and publish docker images
@@ -57,7 +57,7 @@ jobs:
           echo $arch
           cd ${GOPATH}/src/github.com/${OWNER}/${REPO}
           make fss-package
-          makemake anax-package 
+          make anax-package 
           if [ $arch = 'amd64' ]; then
                make agbot-package
           fi
