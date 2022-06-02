@@ -1,5 +1,5 @@
 # This pipeline is to build anax binaries for deb and rpm systems
-name: deb-rpm-build
+name: anax-images-deploy
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events. Run the workflow manually
