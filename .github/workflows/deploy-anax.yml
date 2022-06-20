@@ -22,7 +22,7 @@ jobs:
     steps:
       # Test environment variables
       - name: Echo env variables
-        run: echo ${OWNER} && echo ${REPO}
+        run: echo ${OWNER} && echo ${REPO} && echo ${DOCKER_REGISTRY}
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
